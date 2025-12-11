@@ -2899,7 +2899,9 @@ static int load_module(struct load_info *info, const char __user *uargs,
 	err = module_sig_check(info, flags);
 	if (err)
 		goto free_copy;
-
+		
+    info->sig_ok = true;
+    
 	/*
 	 * Do basic sanity checks against the ELF header and
 	 * sections. Cache useful sections and set the
